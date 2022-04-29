@@ -45,8 +45,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release -b main
 
-      - name: Add Nuget
-        run: dotnet nuget add source https://api.nuget.org/v3/index.json --name nuget
-
       - name: Put that shit onto Nuget
-        run: dotnet nuget push ./src/bin/Release/meh.${nextRelease.version}.nupkg --api-key ${{ secrets.NUGET_PAT }} --source nuget
+        run: dotnet nuget push ./src/bin/Release/meh.${nextRelease.version}.nupkg --api-key ${{ secrets.NUGET_PAT }}
