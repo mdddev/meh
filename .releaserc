@@ -6,7 +6,7 @@
     [
       "@semantic-release/exec", {
         "prepareCmd": "dotnet pack ./src/meh.csproj --no-restore --nologo --configuration Release /p:Version=${nextRelease.version}",
-        "publishCmd": "dotnet nuget push ./src/bin/Release/meh.${nextRelease.version}.nupkg --api-key ${process.env.GH_TOKEN} --source github"
+        "publishCmd": "dotnet nuget push ./src/bin/Release/meh.${nextRelease.version}.nupkg --api-key ${process.env.GH_TOKEN} --source mdddev"
       }
     ]
   ]

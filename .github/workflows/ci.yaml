@@ -37,6 +37,9 @@ jobs:
       - name: Install dev dependencies
         run: npm ci
 
+      - name: Add GH package registry
+        run: dotnet nuget add source https://nuget.pkg.github.com/mdddev/index.json --name mdddev
+
       - name: Release that shit
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
