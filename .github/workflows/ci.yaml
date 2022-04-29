@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - src/**
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write 
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.x.x'
+
+      - name: Restore that shit
+        run: dotnet restore ./meh.sln
+
+      - name: Build that shit
+        run: dotnet build ./meh.sln --configuration Release --nologo --no-restore
+
+      - name: Test that shit 💩
+        run: dotnet test ./tests/meh.tests.csproj --no-restore --verbosity normal --nologo
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dev dependencies
+        run: npm ci
+
+      - name: Release that shit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release -b main
