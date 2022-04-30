@@ -14,7 +14,6 @@
 bin
 obj
 console
-.husky
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
