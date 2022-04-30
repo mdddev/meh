@@ -37,13 +37,16 @@ jobs:
       - name: Install dev dependencies
         run: npm ci
 
-      - name: Add GH package registry
-        run: dotnet nuget add source https://nuget.pkg.github.com/mdddev/index.json --name mdddev
+      # - name: Add GH package registry
+        # run: dotnet nuget add source https://nuget.pkg.github.com/mdddev/index.json --name mdddev
 
       - name: Release that shit
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release -b main
+        run: |
+          dotnet nuget add source https://nuget.pkg.github.com/mdddev/index.json --name mdddev
+          npx semantic-release -b main
+        # shell: pwsh
 
       - name: Put that shit onto Nuget
-        run: dotnet nuget push ./src/bin/Release/meh.${nextRelease.version}.nupkg --api-key ${{ secrets.NUGET_PAT }}
+        run: dotnet nuget push ./src/bin/Release/meh.${nextRelease.version}.nupkg -Source 'https://api.nuget.org/v3/index.json' --api-key ${{ secrets.NUGET_PAT }}
