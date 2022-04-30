@@ -23,19 +23,18 @@ jobs:
 
       - name: Build that shit
         run: dotnet build ./meh.sln --configuration Release --nologo
-        
-      - name: Test that shit 💩
+
+      - name: Test that shit
         run: dotnet test ./tests/meh.tests.csproj --no-restore --verbosity normal --nologo
 
       - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
 
-      - name: Install dev dependencies
-        run: npm ci
-
       - name: Release that shit
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUGET_TOKEN: ${{ secrets.NUGET_PAT }}
-        run: npx semantic-release -b main
+        run: |
+          npm ci
+          npx semantic-release -b main
