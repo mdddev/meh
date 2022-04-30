@@ -1,7 +1,6 @@
 ﻿namespace Meh;
 
-public class Class1
+public class Meh
 {
-    public int MyProperty1 { get; set; }
-
+    public static void WhatsUp() => Console.WriteLine("Meh");
 }
