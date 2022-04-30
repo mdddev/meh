@@ -6,5 +6,5 @@ param(
 
 # dotnet nuget add source https://nuget.pkg.github.com/mdddev/index.json --name mdddev
 # dotnet nuget push ./src/bin/Release/"meh.$version.nupkg" --api-key $gh --source mdddev
-dotnet nuget push ./src/bin/Release/"meh.$version.nupkg" --source 'https://nuget.pkg.github.com/mdddev/index.json' --api-key $ghithub
+dotnet nuget push ./src/bin/Release/"meh.$version.nupkg" --source 'https://nuget.pkg.github.com/mdddev/index.json' --api-key $github
 dotnet nuget push ./src/bin/Release/"meh.$version.nupkg" --source 'https://api.nuget.org/v3/index.json' --api-key $nuget
