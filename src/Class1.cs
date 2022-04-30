@@ -2,5 +2,5 @@
 
 public class Meh
 {
-    public static void WhatsUp() => Console.WriteLine("Meh!");
+    public static void WhatsUp() => Console.WriteLine("Meh");
 }
