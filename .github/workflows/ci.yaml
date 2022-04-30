@@ -23,6 +23,7 @@ jobs:
 
       - name: Build that shit
         run: dotnet build ./meh.sln --configuration Release --nologo
+        
       - name: Test that shit 💩
         run: dotnet test ./tests/meh.tests.csproj --no-restore --verbosity normal --nologo
 
