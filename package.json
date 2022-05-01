@@ -11,6 +11,6 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.cs": "dotnet format --verify-no-changes --include"
+    "*.cs": "dotnet format --no-restore --verify-no-changes --include"
   }
 }
