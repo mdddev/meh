@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RepositoryUrl>https://github.com/mdddev/meh</RepositoryUrl>
+    <Description>This is test</Description>
   </PropertyGroup>
 
 </Project>
